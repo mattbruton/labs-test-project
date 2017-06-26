@@ -17,3 +17,7 @@ Create a web app that will test the site speed of a given URL.  The web app shou
 - How easy it for others to take what you have and extend it / add new features
 - How easy it is for others to refactor code
 - Is the code easy to read and understand
+
+## When is this due
+- Submit your answers via a pull request or if you prefer to not make your answer public then you can email it to us.
+- We will not take any submissions after Sunday, July 9
