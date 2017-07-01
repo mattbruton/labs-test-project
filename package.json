@@ -1,0 +1,47 @@
+{
+  "name": "labs-test-project",
+  "version": "1.0.0",
+  "description": "A challenge that will test the true worth and knowledge of those who dare fork this repo.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "watch": "cross-env NODE_ENV=development webpack --watch",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "dev": "run-p watch start",
+    "prod": "run-p build start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattbruton/labs-test-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattbruton/labs-test-project/issues"
+  },
+  "homepage": "https://github.com/mattbruton/labs-test-project#readme",
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.5.2",
+    "body-parser": "^1.17.2",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
+    "path": "^0.12.7",
+    "postcss": "^6.0.4",
+    "postcss-cssnext": "^2.11.0",
+    "request": "^2.81.0",
+    "sass-loader": "^6.0.6",
+    "vue": "^2.3.4",
+    "vue-loader": "^12.2.1",
+    "vue-template-compiler": "^2.3.4",
+    "webpack": "^3.0.0",
+    "webpagetest": "^0.3.5"
+  }
+}
