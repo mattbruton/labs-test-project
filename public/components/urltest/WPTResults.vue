@@ -28,30 +28,22 @@
 
 <style lang="scss" scoped>
   .container__wpt-results {
-    width: 65%;
+    width: 80%;
     background-color: #4E5A65;
-    color: snow;
     border-radius: 2.5px;
     box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
-    height: 50%;
-    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    @media screen and (max-width: 1400px) {
-      width: 70%;
-    }
-    @media screen and (max-width: 1000px) {
-      width: 80.5%;
-    }
     @media screen and (max-width: 600px) {
       width: 95%;
     }
   }
 
   h3,h4 {
-    text-align: center;
+    color: snow;
     font-family: 'Lato', sans-serif;
+    text-align: center;
   }
 
   h3 {
