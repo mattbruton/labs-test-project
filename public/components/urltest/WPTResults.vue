@@ -1,32 +1,19 @@
-<template lang="html">
-  <div class="container__wpt-results">
-    <div v-for="item in content">
-      <h3>{{item.name}}</h3>
-      <h4>{{item.value}}</h4>
+<template lang='html'>
+  <div v-if='wptData' class='container__wpt-results'>
+    <div v-for='(value, key) in wptData'>
+      <h3>{{key}}</h3>
+      <h4>{{value}}</h4>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    data: function() {
-      return {
-        content: [{
-          name: "TTFB",
-          value: "1000ms"
-        },{
-          name: "Speed Index",
-          value: "1500"
-        }, {
-          name: "Page Size",
-          value: "4999kb"
-        }]
-      }
-    }
+    props: ['wptData']
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
   .container__wpt-results {
     width: 80%;
     background-color: #4E5A65;
