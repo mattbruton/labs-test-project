@@ -1,9 +1,9 @@
 'use strict';
 const { Router } = require('express');
-const seo = require('./seo');
+const url = require('./url');
 
 const router = Router();
 
-router.use(seo);
+router.use(url);
 
 module.exports = router;

@@ -1,21 +1,39 @@
 <template lang="html">
   <div>
-    <input type="text" spellcheck="false" v-model="urlInput" autofocus=autofocus/>
+    <input type="text"
+      autofocus=autofocus
+      :class="{error: isInvalidInput}"
+      @keyup="clearError"
+      spellcheck="false"
+      v-model="urlInput"/>
     <button @click="emitUrlInput">{{buttonText}}</button>
   </div>
 </template>
 
 <script>
+  import isUrl from 'validator/lib/isURL';
+
   export default {
     data: function() {
       return {
-        buttonText: "Test",
-        urlInput: ""
+        buttonText: "Test Url",
+        urlInput: "",
+        isInvalidInput: false
       }
     },
     methods: {
+      clearError() {
+        this.isInvalidInput = false;
+        this.buttonText = "Test Url";
+      },
+      displayError() {
+        this.isInvalidInput = true;
+        this.buttonText = "Invalid Url";
+      },
       emitUrlInput() {
-        this.$emit('emitUrlInput', this.formatUrl(this.urlInput));
+        isUrl(this.urlInput, { protocols: ['http', 'https'], require_protocol: true})
+          ? this.$emit('emitUrlInput', this.formatUrl(this.urlInput))
+          : this.displayError();
       },
       formatUrl(url) {
         return encodeURIComponent(url.trim());
@@ -72,5 +90,9 @@
     &[type=text] {
       font-size: 1.75em;
     };
+  }
+
+  .error {
+    border: 2px solid red;
   }
 </style>
