@@ -4,8 +4,8 @@
       <h1>Enter a URL to test:</h1>
       <url-input @emitUrlInput="getUrlData"></url-input>
     </div>
-    <wpt-results></wpt-results>
-    <seo-results></seo-results>
+    <wpt-results :wptData='wptData' />
+    <seo-results :seoData='seoData'></seo-results>
   </div>
 </template>
 
@@ -22,15 +22,26 @@
       'url-input': UrlInput,
       'wpt-results': WPTResults
     },
+    data: function() {
+      return {
+        wptData: null,
+        seoData: null
+      }
+    },
     methods: {
       getUrlData(url) {
         axios.get(`./api/testUrl/${url}`)
         .then((response) => {
+          this.setDataObjects(response.data);
           console.log(response);
         })
         .catch((err) => {
           console.log(err);
         })
+      },
+      setDataObjects(res) {
+        this.wptData = res.wptData;
+        this.seoData = res.seoData;
       }
     }
   }

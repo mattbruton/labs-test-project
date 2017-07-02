@@ -1,10 +1,10 @@
 <template lang="html">
-  <div class="seo-results">
+  <div v-if="seoData" class="seo-results">
     <div class="results-container">
       <seo-results-detail
         :key=result.test
         :resultData=result
-        v-for="result in results" />
+        v-for="result in seoData" />
     </div>
   </div>
 </template>
@@ -16,23 +16,7 @@ export default {
   components: {
     'seo-results-detail': SeoResultsDetail
   },
-  data: function() {
-    return {
-      results: [{
-        test: 'Single H1 Element',
-        passed: false,
-        tip: "This test will fail if the page contains more than one H1 element."
-      }, {
-        test: 'Meta Description',
-        passed: true,
-        tip: "A good description is between 135-160 characters in length."
-      }, {
-        test: 'Title Length',
-        passed: true,
-        tip: "Titles should be 55 characters or less in length."
-      }]
-    }
-  }
+  props: ['seoData']
 }
 </script>
 
