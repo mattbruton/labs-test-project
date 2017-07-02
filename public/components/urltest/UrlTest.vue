@@ -2,7 +2,7 @@
   <div class="container__url-test">
     <div class="container__input">
       <h1>Enter a URL to test:</h1>
-      <url-input></url-input>
+      <url-input @emitUrlInput="getUrlData"></url-input>
     </div>
     <wpt-results></wpt-results>
     <seo-results></seo-results>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   import SeoResults from './SeoResults.vue';
   import UrlInput from './UrlInput.vue';
   import WPTResults from './WPTResults.vue';
@@ -20,6 +21,17 @@
       'seo-results': SeoResults,
       'url-input': UrlInput,
       'wpt-results': WPTResults
+    },
+    methods: {
+      getUrlData(url) {
+        axios.get(`./api/testUrl/${url}`)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      }
     }
   }
 </script>
