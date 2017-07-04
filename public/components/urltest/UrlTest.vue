@@ -1,11 +1,11 @@
-<template lang="html">
-  <div class="container__url-test">
-    <div class="container__input">
+<template lang='html'>
+  <div class='container__url-test'>
+    <div class='container__input'>
       <h1>Enter a URL to test:</h1>
-      <url-input @emitUrlInput="getUrlData"></url-input>
+      <url-input @emitUrlInput='getUrlData' />
     </div>
     <wpt-results :wptData='wptData' />
-    <seo-results :seoData='seoData'></seo-results>
+    <seo-results :seoData='seoData' />
   </div>
 </template>
 
@@ -33,7 +33,6 @@
         axios.get(`./api/testUrl/${url}`)
         .then((response) => {
           this.setDataObjects(response.data);
-          console.log(response);
         })
         .catch((err) => {
           console.log(err);
@@ -47,7 +46,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 
   .container__url-test {
     background-color: slategrey;

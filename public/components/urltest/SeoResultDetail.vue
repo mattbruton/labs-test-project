@@ -3,7 +3,7 @@
     <div class="result__header">
       <h3>{{resultData.test}}</h3>
     </div>
-    <span><i :class="symbol" aria-hidden="true"></i></span>
+    <span><i :class="getSymbol" aria-hidden="true"></i></span>
     <p>{{resultData.tip}}</p>
   </div>
 </template>
@@ -11,14 +11,9 @@
 <script>
   export default {
     props: ['resultData'],
-    data: function() {
-      return {
-        symbol: this.getSymbol(this.resultData.passed)
-      }
-    },
-    methods: {
-      getSymbol (bool) {
-        return bool ? "fa fa-check-circle-o" : "fa fa-times-circle-o"
+    computed: {
+      getSymbol: function() {
+        return this.resultData.passed ? "fa fa-check-circle-o" : "fa fa-times-circle-o";
       }
     }
   }
