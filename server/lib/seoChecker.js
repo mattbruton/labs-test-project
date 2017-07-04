@@ -15,7 +15,7 @@ const seoChecker = {
     const title = $('title').text();
     return {
       test: 'Title Length',
-      passed: title && title.length <= 55 ? true : false,
+      passed: title && title.length <= 55 && title.length > 0 ? true : false,
       tip: 'Titles should be 55 characters or less in length.'
     }
   },
