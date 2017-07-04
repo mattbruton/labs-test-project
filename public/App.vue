@@ -19,5 +19,6 @@
   }
 </script>
 
-<style lang="css">
+<style lang="scss">
+  @import './styles/normalize.scss';
 </style>
