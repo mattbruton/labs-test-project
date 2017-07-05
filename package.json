@@ -9,7 +9,8 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "dev": "run-p watch start",
     "prod": "npm-run-all build start",
-    "test": "mocha"
+    "test": "mocha",
+    "heroku-postbuild": "npm-run-all build"
   },
   "repository": {
     "type": "git",
@@ -52,5 +53,8 @@
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0",
     "webpagetest": "^0.3.5"
+  },
+  "engines": {
+    "node": "8.1.2"
   }
 }
