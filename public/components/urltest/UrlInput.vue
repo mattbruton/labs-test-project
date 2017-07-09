@@ -31,8 +31,8 @@
         this.buttonText = "Invalid Url";
       },
       emitUrlInput() {
-        isUrl(this.urlInput, { protocols: ['http', 'https'], require_protocol: true})
-          ? this.$emit('emitUrlInput', this.formatUrl(this.urlInput))
+        isUrl(this.urlInput.toLowerCase(), { protocols: ['http', 'https'], require_protocol: true})
+          ? this.$emit('emitUrlInput', this.formatUrl(this.urlInput.toLowerCase()))
           : this.displayError();
       },
       formatUrl(url) {
